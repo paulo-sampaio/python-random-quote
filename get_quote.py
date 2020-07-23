@@ -14,7 +14,7 @@ def get_random_quote():
 
 def get_runs_qty():
     try:
-        number_of_quotes = sys.argv[1]
+        number_of_quotes = int(sys.argv[1])
         if number_of_quotes > 0:
             return number_of_quotes
         else:
