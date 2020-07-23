@@ -1,6 +1,9 @@
 import io
+import sys
+import random
 import unittest
 import get_quote
+from unittest.mock import patch
 
 class TestGetQuotes(unittest.TestCase):
 
@@ -26,6 +29,10 @@ class TestGetQuotes(unittest.TestCase):
         qf.close()
         self.assertIn(rq, quotes)
 
+    def test_get_runs_qty_should_return_one_plus(self):
+        with patch.object(sys, 'argv', [random.randint(0, 100)]):
+            runs = get_quote.get_runs_qty()
+        self.assertGreaterEqual(runs, 1)
 
 if __name__ == '__main__':
     unittest.main()
