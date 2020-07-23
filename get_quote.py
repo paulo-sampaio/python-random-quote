@@ -12,6 +12,9 @@ def get_random_quote():
     rnd = random.randint(0, len(quotes)-1)
     return quotes[rnd]
 
+def get_trimmed_quote(quote):
+    return quote.strip()
+
 def get_runs_qty():
     try:
         number_of_quotes = int(sys.argv[1])

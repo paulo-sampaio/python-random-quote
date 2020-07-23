@@ -22,6 +22,11 @@ class TestGetQuotes(unittest.TestCase):
         rq = get_quote.get_random_quote()
         self.assertIsInstance(rq, str)
     
+    def test_trims_quote_returns_trimmed_string(self):
+        rq = get_quote.get_random_quote()
+        tq = get_quote.get_trimmed_quote(rq)
+        self.assertNotEqual('\n', tq[-1])
+    
     def test_get_random_quote_returns_string_present_in_file(self):
         rq = get_quote.get_random_quote()
         qf = open('quotes.txt', 'r')
